@@ -51,12 +51,12 @@ class DocScanService {
    *
    * @returns {Promise} Resolves CreateSessionResult
    */
-  createSession(sessionSpecification) {
+  createSession(sessionSpecification, _docScanApi = null) {
     Validation.instanceOf(sessionSpecification, SessionSpecification, 'sessionSpecification');
 
     const request = new RequestBuilder()
       .withPemString(this.pem)
-      .withBaseUrl(config.yoti.docScanApi)
+      .withBaseUrl(_docScanApi || config.yoti.docScanApi)
       .withEndpoint('/sessions')
       .withQueryParam('sdkId', this.sdkId)
       .withPost()
