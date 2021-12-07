@@ -25,8 +25,8 @@ class DocScanClient {
    *
    * @returns {Promise} Resolving CreateSessionResult
    */
-  createSession(sessionSpecification) {
-    return this.docScanService.createSession(sessionSpecification);
+  createSession(sessionSpecification, _docScanApi = null) {
+    return this.docScanService.createSession(sessionSpecification, _docScanApi);
   }
 
   /**
